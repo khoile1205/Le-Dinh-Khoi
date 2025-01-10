@@ -15,6 +15,9 @@
  *
  */
 function sum_to_n_a(number: number): number {
+  if (number <= 0) {
+    return 0;
+  }
   return (number * (number + 1)) / 2;
 }
 
@@ -22,7 +25,7 @@ function sum_to_n_a(number: number): number {
  * This is divide and conquer algorithm for calculating the sum of numbers from 1 to n
  ** Time complexity: for each loop, the calculated range is divided by 2 --> O(log(n))
  ** Space complexity: because of the divided to n / 2 range, recursion is called by O(log(n))
- ** Pros: This is an better approach to calculate instead of using the loop
+ ** Pros: Efficient for large numbers (up to `10^9`).
  ** Cons:
  ** - Need to know concept of divide and conquer
  ** - Because of the recursion, it can cause stack overflow if the number is too large
@@ -38,6 +41,10 @@ function sum_to_n_b(number: number): number {
     }
     const mid = Math.floor((start + end) / 2);
     return calculateRangeSum(start, mid) + calculateRangeSum(mid + 1, end);
+  }
+
+  if (number <= 0) {
+    return 0;
   }
   return calculateRangeSum(0, number);
 }
@@ -61,3 +68,7 @@ function sum_to_n_c(number: number): number {
   }
   return sum;
 }
+
+console.log(sum_to_n_a(10)); // Output: 55
+console.log(sum_to_n_b(10)); // Output: 55
+console.log(sum_to_n_c(10)); // Output: 55

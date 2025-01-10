@@ -13,20 +13,64 @@ export const swaggerOptions = {
           properties: {
             id: {
               type: "integer",
+              description: "Unique identifier for the book",
             },
             title: {
               type: "string",
+              description: "Title of the book",
             },
             author: {
               type: "string",
+              description: "Author of the book",
             },
-            publishedDate: {
+            description: {
               type: "string",
-              format: "date",
+              description: "Description of the book",
+            },
+            publishedYear: {
+              type: "integer",
+              description: "Year the book was published",
+            },
+            genre: {
+              type: "object",
+              description: "Genre of the book",
+              properties: {
+                id: {
+                  type: "integer",
+                  description: "Genre ID",
+                },
+                name: {
+                  type: "string",
+                  description: "Name of the genre",
+                },
+              },
+            },
+            publisher: {
+              type: "string",
+              description: "Publisher of the book",
+            },
+            language: {
+              type: "string",
+              description: "Language of the book",
+            },
+            createdAt: {
+              type: "string",
+              format: "date-time",
+              description: "Timestamp when the book was created",
+            },
+            updatedAt: {
+              type: "string",
+              format: "date-time",
+              description: "Timestamp when the book was last updated",
+            },
+            deletedAt: {
+              type: "string",
+              format: "date-time",
+              description: "Timestamp when the book was deleted (if applicable)",
+              nullable: true,
             },
           },
         },
-
         CreateBookDTO: {
           type: "object",
           properties: {

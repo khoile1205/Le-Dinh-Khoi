@@ -219,7 +219,7 @@ export class BooksController {
 
     try {
       await this.bookService.delete(+id);
-      sendResponse(res, HttpStatus.NO_CONTENT);
+      sendResponse(res, HttpStatus.OK, null, "Book deleted successfully");
     } catch (error) {
       next(error);
     }
